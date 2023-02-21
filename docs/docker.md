@@ -13,7 +13,7 @@
     docker run -d -p 3306 --name cname imane -v pathA:pathB 
     -d 
     -p 指定容器要公开的端口
-        查看端口映射：docker port mysql8 3306
+        查看端口映射：docker port mysql 3306
         或者直接-P用大写的-P来公开Dockerfile中EXPOSE指令公开的所有端口
         其他用法 -p 8080:80 将容器的80端口绑定到宿主机的8080端口
         其他用法 -p 127.0.0.1:80:8080 将容器的8080端口绑定到宿主机的127.0.0.1这个IP的8080端口上
@@ -57,6 +57,10 @@
     docker rm mysql 
     mysql 为容器名称
 
+#### 列出镜像
+
+    docker iamges
+
 #### 删除镜像
 
     docker rmi mysql8 redis
@@ -67,3 +71,8 @@
 
     docker push mysql8
     mysql8 为镜像名称
+
+#### 进入docker容器bash
+
+    docker exec -it b30062adc08c /bin/bash
+    b30062adc08c 容器ID或者使用容器名称
