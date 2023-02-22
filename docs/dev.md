@@ -14,4 +14,7 @@
     启动容器: // docker run --name mongo -p 27017:27017 -v $PWD/data:/data/db -d mongo:latest
              docker run --name mongo -p 27017:27017 -v /Users/cisco/Desktop/workspace/docker/data/mongo:/data/db -d mongo:latest
 
+
+#### docker compose
+
     

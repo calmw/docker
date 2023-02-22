@@ -76,3 +76,12 @@
 
     docker exec -it b30062adc08c /bin/bash
     b30062adc08c 容器ID或者使用容器名称
+
+#### docker compose
+
+    docker编配工具
+    使用docker compose 可以用一个yaml文件定义一组要启动的容器，以及容器运行时的属性，定义好文件后，使用docker-compose -d up命令，以守护进程的方式来启动compose
+    docker-compose ps, 类似于docker ps 查看正在运行的容器服务
+    docker-compose stop 停止正字运行的服务
+    docker-compose rm 删除正在运行的服务
+    docker-compose 的方式，可以使用复杂一些的docker run 命令代替
