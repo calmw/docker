@@ -94,3 +94,10 @@
     docker 中与定义了一些ARG变量，可以在构建时直接使用，如： HTTP_PROXY FTP_PROXY 等
 
 #### ONBUILD
+
+    能为镜像添加触发器（trigger）。当一个镜像被用作其他镜像的基础镜像时（比如用户镜像需要从某未准备好的位置添加源代码，或者用户需要执行特定于构建镜像的环境的构建脚本），该镜像中的触发器将会被执行
+    触发器可以是任何构建指令，示例：
+        ONBUILD ADD . /app/src
+        ONBUILD RUN cd /app/src && make
+    ONBUILD 触发器只会在自镜像中执行，而不会在孙子镜像中执行
+    有几条指令是不能用在ONBUILD指令中的，包括FROM、MAINTAINER和ONBUILD本身，之所以这样规定是为了放置在Dockerfile构建过程中产生递归调用的问题

@@ -85,5 +85,19 @@
     docker-compose stop 停止正字运行的服务
     docker-compose rm 删除正在运行的服务
     docker-compose 的方式，可以使用复杂一些的docker run 命令代替
-    docker-compose示例：
-```java```
+    docker-compose示例：docker-compose.yml
+
+```
+web:
+    image: webapp
+    command: python app.py
+    ports:
+    - "5000:5000"
+    volumes:
+    - .:/composeapp
+    links:
+    - redis
+redis:
+    image: redis
+
+```
