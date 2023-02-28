@@ -26,9 +26,12 @@
 
 #### RUN
 
+    示例：RUN apt-get -yqq update && apt-get -yqq install mysql-server-8.0
     exec格式的RUN指令：RUN["apt-get", "install", "-y", "nginx"]
 
 #### EXPOSE
+
+    公开镜像的端口
 
 #### WORKDIR
 
