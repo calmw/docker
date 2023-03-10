@@ -25,6 +25,28 @@
     拉取最新镜像: docker pull nginx:latest
     启动容器: docker run --name nginx -p 80:80 -d nginx:latest
 
+#### ubuntu container
+
+    拉取最新镜像: docker pull ubuntu:latest
+    启动容器: docker run -itd --name ubuntu -P ubuntu:latest
+
+#### dev container
+
+    镜像通过demo中Dockerfile构建
+    启动本地测试容器: docker run -itd -P -v /Users/cisco/Desktop/workspace/docker/ubuntu/data:/data -v /Users/cisco/Desktop/workspace/docker/ubuntu/project:/project --name dev_ubuntu dev
+
 #### docker compose
+
+    启动命令：
+        在docker-compose.yml同目录启动,守护进程模式启动：docker-compose up -d
+        docker-compose up 
+    删除docker-compose服务
+        docker-compose rm
+    查看在运行的服务
+        docker-compose ps
+    查看日志
+        docker-compose logs
+    停止服务
+        docker-compose stop
 
     

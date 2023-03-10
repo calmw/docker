@@ -1,9 +1,23 @@
-FROM ubuntu:23.04
+FROM ubuntu
 MAINTAINER wang "calm.wang@hotmail.com"
 ENV REFRESHED_AT = 2023-02-19
 
-RUN apt-get -yqq update && apt-get -yqq install mysql-server-8.0
+ENV GOPROXY = https://goproxy.cn
 
-ExPOSE 3306
+RUN apt-get update
+RUN apt-get install -y  vim
+RUN apt-get install -y  net-tools
+RUN apt-get install -y  iputils-ping
+RUN apt-get install -y  curl
+RUN apt-get -y install rustc
+RUN apt-get -y install cargo
+RUN apt-get -y install golang
+RUN apt-get -y install python3
 
-ENTRYPOINT ["mysqld"]
+VOLUME ["/project", "/data"]
+
+
+
+
+
+

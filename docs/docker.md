@@ -21,6 +21,8 @@
     cname 自己指定的容器名称,也就是从image镜像创建了一个名为cname的容器
     imane build过的镜像名称
     -v 使用宿主机pathA目录挂在到容器pathB目录，可以先在Dockerfile中加入 RUN makedir -p pathB ,然后在启动容器是加入参数-v来指定宿主机的目录去挂载到容器的pathB
+    运行失败，可以试下这个命令：
+        docker run -itd -P --name cname imane -v pathA:pathB 
 
 #### 查看运行容器的端口映射
 
