@@ -119,7 +119,7 @@ docker history mysql8
 ### 分层, 优化推送和拉取镜像的大小
 
     在构建镜像时可以分层，下一层依赖上一层，每次改变某一层时，后续的每一层都会发生变化。更改前面的某些层意味着你需要重新构建、重新推送和重新拉取，才能将镜像部署到开发中
-    举个例子：第一层构建一个base os, 第二层增加 server.js,第三层增加node,
+    举个例子：第一层构建一个base os, 第二层增加 server.js,第三层增加node（准确点说：每条指令创建一层）
         如果server.js发生变化，则第二和第三层都需要拉取和推送
         如果顺序改为：第一层构建一个base os, 第二层增加node, 第三层增加 server.js。 此时server.js变化时只需要第三层拉取和推送
         结论： 各层的排序，按照发生变化的概率由小到大顺序排列
@@ -137,7 +137,7 @@ docker history mysql8
 
 ``` dockerfile
 # STAGE 1: build
-FROM golang*****
+FROM golang***** AS build
 RUN ****
 WORKDIR /go/src/kuard
 # copy all source in
@@ -147,6 +147,7 @@ ENV ***
 RUN build/build.sh
 # STAGE 2: Deployment
 USER nobody:nobody
+# --from后的参数来自第二行 AS build， 也就是多阶段构建时候，COPY的时候选择内容来自那一个镜像
 COPY --from=build /go/bin/kuard /kuard
 CMD ["/kuard"]
 ```
