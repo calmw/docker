@@ -70,7 +70,7 @@ docker history mysql8
     用来将构建环境下的文件和目录复制到镜像中
     示例： ADD software.lic /opt/application/software.lic 这里的ADD指令会将构建目录下的software.lic文件复制到镜像中的/opt/application/software.lic，指向源文件的位置参数可以是一个URL，或者构建上下文或环境中文件名或者目录。不能对构建目录或者上下文之外的文件进行ADD操作
     在ADD文件时，docker通过参数末尾是否有/来判断是目录还是文件
-    在ADD中使用URL的示例： ADD http:wordpress.com/latest.zip /root/wordpress.zip
+    在ADD中使用URL的示例： ADD http:wordpress.com/latest.zip /root/wordpress.zip ，ADD指定遇到压缩包的话会自动解压文件
     如果目的位置不存在的话，docker会为我们创建这个全路径。包括路径中的任何目录
     新创建的文件和目录模式为0755，并且uid和gid都是0
 
@@ -110,6 +110,12 @@ docker history mysql8
     ONBUILD 触发器只会在自镜像中执行，而不会在孙子镜像中执行
     有几条指令是不能用在ONBUILD指令中的，包括FROM、MAINTAINER和ONBUILD本身，之所以这样规定是为了放置在Dockerfile构建过程中产生递归调用的问题
 
+### DockerFile的ADD和COPY的区别
+
+    COPY指令和ADD指令的唯一区别在于：是否支持从远程URL获取资源。
+    COPY指令只能从执行docker build所在的主机上读取资源并复制到镜像中。而ADD指令还支持通过URL从远程服务器读取资源并复制到镜像中。
+    相同需求时，推荐使用COPY指令。ADD指令更擅长读取本地tar文件并解压缩。
+
 ### 分层, 优化推送和拉取镜像的大小
 
     在构建镜像时可以分层，下一层依赖上一层，每次改变某一层时，后续的每一层都会发生变化。更改前面的某些层意味着你需要重新构建、重新推送和重新拉取，才能将镜像部署到开发中
@@ -128,6 +134,7 @@ docker history mysql8
     将编译代码作为构建的一部分感觉很自然，这是最简单的利用程序构建容器镜像的方法。然而这样的问题在于，所有不必要的开发工具都会遗留下来，通常这些工具都很大，一旦进入镜像内部，就会降低部署速度。为了解决这个问题，Docker引入了多阶段构建。如果采用多阶段构建，而不是生成一个镜像，则Docker文件实际上会生成多个镜像。
     例如：  构建一个包含react前端，然后将其嵌入golang程序中。我们可以将该Dockerfile分为两个阶段，
         该Dockerfile会生成两个镜像，第一个是构建镜像，其中包含go编译器、react工具链以及该程序代码。第二个是部署镜像，其中包含编译好的二进制文件。利用多阶段构建来构建容器可以让最终的镜像缩小数百兆。该Dockerfile生成的镜像最终只有20多MB（多阶段构建部署时候只需要最部署运行最终的镜像）,Dockerfile示例代码如下：
+
 ``` dockerfile
 # STAGE 1: build
 FROM golang*****
