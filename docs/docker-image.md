@@ -8,7 +8,7 @@ docker images
 ``` dockerfile
 docker history mysql8
 ```
-mysql8 此处参数值为镜像名称或者ID都可以 
+- mysql8 此处参数值为镜像名称或者ID都可以 
 
 ####  FROM
 
