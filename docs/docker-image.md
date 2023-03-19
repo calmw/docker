@@ -148,7 +148,7 @@ ENV ***
 RUN build/build.sh
 # STAGE 2: Deployment
 USER nobody:nobody
-# --from后的参数来自第二行 AS build， 也就是多阶段构建时候，COPY的时候，选择的内容来自哪一个镜像，目的：从构建器镜像中复制文件。
+# --from后的参数来自第二行 AS build， 也就是多阶段构建时候，COPY的时候，选择的内容来自哪一个镜像，目的：从某个阶段构建的镜像中复制文件。
 COPY --from=build /go/bin/kuard /kuard
 CMD ["/kuard"]
 ```
