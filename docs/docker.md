@@ -125,3 +125,8 @@ redis:
         –cup-shares：当有多个docker的时候，所有docker按比例分配cpu资源，如果其他docker空闲的话，仅有一个docker繁忙，则他可以用完所有cpu
         –cpuset-cpus：指定docker运行在哪个cpu上，比如，4核cpu编号为[0-3]
         默认设置下，所有容器可以平等地使用主机 CPU 资源并且没有限制。docker 可以通过-c或–cpu-shares设置容器使用 CPU 的权重。如果不指定，默认值为 1024。
+
+#### 清理
+
+    Docker提供了一个名为docker system prune的工具，可用于常见清理。这个工具将删除所有停止的容器、所有未标记的镜像以及构建过程中缓存下来的所有未使用的镜像层
+
