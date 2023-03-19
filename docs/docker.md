@@ -12,7 +12,7 @@
 
     docker run -d -p 3306 --name cname imane -v pathA:pathB 
     -d 
-    -p 指定容器要公开的端口
+    -p 指定容器要公开的端口，也就是 --publish
         查看端口映射：docker port mysql 3306
         或者直接-P用大写的-P来公开Dockerfile中EXPOSE指令公开的所有端口
         其他用法 -p 8080:80 将容器的80端口绑定到宿主机的8080端口
