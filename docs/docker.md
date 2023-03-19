@@ -116,8 +116,12 @@ redis:
         2)如果想限制CPU使用，则可以使用docker命令的中的--cpu-shares
         示例：
             docker run --cpu-shares 1024 --memory 200m --memeory-swap 1G
-    CPU使用率控制
-        cpu周期：1s为一个周期的定律，参数值一般为100000（CPU衡量单位是秒）
-        假如需要给此容器分配cpu使用率的20%，则参数需要设置为20000，相当于每个周期分配给这个容器0.2s
-        cpu在一个时刻，只能给一个进程占用
-                         |
+    内存
+        -m 或 –memory :
+        –memory-swap * ：此命令依赖于-m
+    CPU
+        CPU为按比例分配
+        –cpus=<value> 使用value核cpu，比如cpu为双核，可以设置–cpus=”1.5″，表示有1.5核cpu分配给该容器
+        –cup-shares：当有多个docker的时候，所有docker按比例分配cpu资源，如果其他docker空闲的话，仅有一个docker繁忙，则他可以用完所有cpu
+        –cpuset-cpus：指定docker运行在哪个cpu上，比如，4核cpu编号为[0-3]
+        默认设置下，所有容器可以平等地使用主机 CPU 资源并且没有限制。docker 可以通过-c或–cpu-shares设置容器使用 CPU 的权重。如果不指定，默认值为 1024。
