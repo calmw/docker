@@ -74,6 +74,8 @@
     docker push mysql8
     mysql8 为镜像名称
 
+- 需要打tag的，可参考 [**打tag推送**](./docker-image.md)
+
 #### 进入docker容器bash
 
     docker exec -it b30062adc08c /bin/bash
