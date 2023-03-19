@@ -152,4 +152,16 @@ USER nobody:nobody
 COPY --from=build /go/bin/kuard /kuard
 CMD ["/kuard"]
 ```
-    
+
+### 将镜像推送到远程仓库
+
+    使用仓库分发镜像比较快捷（导出镜像，再导入到每台计算机上比较繁琐也比较容易出错，所以用仓库较好）
+    镜像仓库分为公共仓库和私有仓库
+        1）公共仓库非常适合与全世界共享镜像
+        2）适合存储你不希望全世界都来使用的私有服务
+        不论使用哪种仓库，将镜像推送到仓库都需要经过身份认证。可以通过docker login 命令来操作
+    下面以推送到Docker Hub为例，
+        1）将镜像推送到仓库之前你需要给镜像加上标签（标签之间需要用冒号：分割）。你也可以追加另一种标志符（通常用于标记镜像版本或变体）
+            docker tag kuard gcr.io/kuard-amd64:blue
+        2)推送docker镜像
+            docker push gcr.io/kuard-amd64:blue
