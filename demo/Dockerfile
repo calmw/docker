@@ -18,7 +18,7 @@ RUN apt-get install -y cargo
 RUN apt-get install -y golang
 RUN apt-get install -y python3
 
-VOLUME ["/project", "/data"]
+VOLUME ["/project", "/data", "/www"]
 
 # web
 EXPOSE 80
@@ -38,7 +38,7 @@ EXPOSE 21314
 EXPOSE 21314
 
 # 运行容器
-# docker run -itd -P -v /Users/cisco/Desktop/workspace/docker/ubuntu/data:/data -v /Users/cisco/Desktop/workspace/docker/ubuntu/project:/project --name dev dev
+# docker run -itd -P -v /Users/cisco/Desktop/workspace/docker/dev/data:/data -v /Users/cisco/Desktop/workspace/docker/dev/project:/project -v /Users/cisco/Desktop/workspace/docker/dev/btwww:/www --name dev dev
 # 安装宝塔
 # sudo mkdir bt && cd bt && wget -O install.sh https://download.bt.cn/install/install-ubuntu_6.0.sh && sudo bash install.sh ed8484bec
 
