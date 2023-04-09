@@ -39,6 +39,11 @@ EXPOSE 21314
 
 # 运行容器
 # docker run -itd -P -v /Users/cisco/Desktop/workspace/docker/dev/data:/data -v /Users/cisco/Desktop/workspace/docker/dev/project:/project -v /Users/cisco/Desktop/workspace/docker/dev/btwww:/www --name dev dev
+
+# 运行容器,增加--cap-add，来解决在docker中运行出现 Operation not permitted
+# chattr命令使用时需要CAP_LINUX_IMMUTABLE，而在docker是默认禁用的。解决办法是在docker启动时添加--cap-add参数(--cap-add LINUX_IMMUTABLE)。
+# docker run -itd  --cap-add LINUX_IMMUTABLE -P -v /Users/cisco/Desktop/workspace/docker/dev/data:/data -v /Users/cisco/Desktop/workspace/docker/dev/project:/project -v /Users/cisco/Desktop/workspace/docker/dev/btwww:/www --name dev dev
+
 # 安装宝塔
 # sudo mkdir bt && cd bt && wget -O install.sh https://download.bt.cn/install/install-ubuntu_6.0.sh && sudo bash install.sh ed8484bec
 
