@@ -23,7 +23,7 @@
 #### nginx container
 
     拉取最新镜像: docker pull nginx:latest
-    启动容器: docker run --name nginx -p 80:80 -d nginx:latest
+    启动容器: docker run --network=dev --name nginx -p 80:80 -d nginx:latest
 
 #### ubuntu container
 
