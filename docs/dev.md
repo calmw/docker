@@ -1,7 +1,7 @@
 #### mysql container
 
     拉取最新镜像: docker pull mysql:latest
-    启动容器: docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root -d mysql:latest
+    启动容器: docker run --network=dev --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root -d mysql:latest
 
 #### redis container
 

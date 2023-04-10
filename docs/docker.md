@@ -33,7 +33,19 @@
 
 #### docker networking
 
-    docker network create app  #创建一个app的docker网络
+    创建网络
+        docker network create app  #创建一个app的docker网络
+    查看网络
+        docker network ls
+    删除网络
+        docker network rm network_name
+    使用：
+        1.将正在运行的容器连接到网络
+            docker network connect 网络名 正在运行的容器
+        2、启动时将容器连接到网络
+            docker run -itd --network=网络名 即将启动的容器
+        3.指定容器的IP地址
+            docker network connect --ip 10.10.10.10 网络名 容器
 
 #### 重启redis容器
 
