@@ -17,6 +17,8 @@ RUN apt-get install -y rustc
 RUN apt-get install -y cargo
 RUN apt-get install -y golang
 RUN apt-get install -y python3
+RUN apt-get install -y locales
+RUN locale-gen en_US.UTF-8
 
 VOLUME ["/project", "/data"]
 
