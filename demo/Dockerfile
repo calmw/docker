@@ -24,6 +24,12 @@ VOLUME ["/project", "/data"]
 
 # web
 EXPOSE 80
+# web2
+EXPOSE 1000
+# web3
+EXPOSE 1001
+# web4
+EXPOSE 1002
 # restful api 1
 EXPOSE 8080
 # restful api 2
