@@ -1,16 +1,15 @@
-FROM ubuntu
+FROM --platform=linux/amd64 ubuntu
 MAINTAINER wang "calm.wang@hotmail.com"
 ENV REFRESHED_AT = 2023-02-19
 
-ENV GOPROXY = https://goproxy.cn
-
 WORKDIR wkspace
 
-RUN apt-get update
+RUN apt-get -y update
 RUN apt-get install -y vim
 RUN apt-get install -y sudo
 RUN apt-get install -y wget
 RUN apt-get install -y curl
+RUN apt-get install -y locate
 RUN apt-get install -y net-tools
 RUN apt-get install -y iputils-ping
 RUN apt-get install -y rustc
