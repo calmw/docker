@@ -35,6 +35,11 @@
     镜像通过demo中Dockerfile构建
     启动本地测试容器: docker run -itd -P -v /Users/cisco/Desktop/workspace/docker/ubuntu/data:/data -v /Users/cisco/Desktop/workspace/docker/ubuntu/project:/project --name dev_ubuntu dev
 
+#### baota container
+
+    镜像: docker pull btpanel/baota
+    启动本地测试容器: docker run -d --restart unless-stopped --name baota -p 8888:8888 -p 22:22 -p 443:443 -p 80:80 -p 888:888  -v /Users/cisco/Desktop/workspace/docker/dev/vhost:/www/server/panel/vhost btpanel/baota:lnmp
+
 #### docker compose
 
     启动命令：
