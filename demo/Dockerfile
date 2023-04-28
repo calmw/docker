@@ -16,10 +16,12 @@ RUN apt-get install -y rustc
 RUN apt-get install -y cargo
 RUN apt-get install -y golang
 RUN apt-get install -y python3
+RUN apt-get install -y php=8.0.26
+RUN apt-get install -y nginx=1.24.0
 RUN apt-get install -y locales
 RUN locale-gen en_US.UTF-8
 
-VOLUME ["/project", "/data"]
+VOLUME ["/etc", "/data", "/project"]
 
 # web
 EXPOSE 80
