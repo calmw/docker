@@ -33,12 +33,12 @@
 #### dev container
 
     镜像通过demo中Dockerfile构建
-    启动本地测试容器: docker run -itd -P -v /Users/cisco/Desktop/workspace/docker/ubuntu/data:/data -v /Users/cisco/Desktop/workspace/docker/ubuntu/project:/project --name dev_ubuntu dev
+    启动本地测试容器: docker run -itd --network=dev -p 1000:1000 -p 1001:1001 -p 1002:1002 -p 8080:8080 -p 8090:8090 -p 9000:9000 -p 9001:9001 -p 9002:9002 -p 9003:9003 -p 8600:8600  -v /Users/cisco/Desktop/workspace/docker/dev/data:/data -v /Users/cisco/Desktop/workspace/docker/dev/project:/project --name dev dev
 
 #### baota container
 
     镜像: docker pull btpanel/baota
-    启动本地测试容器: docker run -d --restart unless-stopped --name baota -p 8888:8888 -p 22:22 -p 443:443 -p 80:80 -p 888:888  -v /Users/cisco/Desktop/workspace/docker/dev/vhost:/www/server/panel/vhost btpanel/baota:lnmp
+    启动本地测试容器: docker run -d --restart unless-stopped --name baota -p 8888:8888 -p 22:22 -p 443:443 -p 80:80 -p 888:888  -v /Users/cisco/Desktop/workspace/docker/dev/vhost:/www/server/panel/vhost  -v /Users/cisco/Desktop/workspace/docker/dev/vhost:/www/server/panel/vhost  -v /Users/cisco/Desktop/workspace/docker/dev/data:/data -v /Users/cisco/Desktop/workspace/docker/dev/project:/project btpanel/baota
 
 #### docker compose
 
