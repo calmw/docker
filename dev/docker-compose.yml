@@ -10,9 +10,6 @@ services:
     restart: always
     volumes:
       - /Users/cisco/Desktop/workspace/docker/dev/lnmp/nginx/www:/www
-    environment:
-      - RABBITMQ_DEFAULT_USER=guest
-      - RABBITMQ_DEFAULT_PASS=guest
     ports:
       - "9000:9000"
     networks:
