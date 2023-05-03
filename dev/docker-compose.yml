@@ -1,0 +1,43 @@
+version: '3'
+
+networks:
+  dev:
+
+services:
+  php:
+    image: php:8.2-fpm-alpine
+    container_name: php
+    restart: always
+    volumes:
+      - /Users/cisco/Desktop/workspace/docker/dev/lnmp/nginx/www:/www
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - dev
+
+  nginx:
+    image: nginx
+    container_name: nginx
+    restart: always
+    volumes:
+      - /Users/cisco/Desktop/workspace/docker/dev/lnmp/nginx/conf/conf.d:/etc/nginx/conf.d
+      - /Users/cisco/Desktop/workspace/docker/dev/lnmp/nginx/www:/www
+      - /Users/cisco/Desktop/workspace/docker/dev/lnmp/nginx/logs:/logs
+    links:
+      - php
+    ports:
+      - "8001:8001"
+      - "8002:8002"
+      - "8003:8003"
+      - "8004:8004"
+      - "8005:8005"
+      - "8006:8006"
+      - "8007:8007"
+    networks:
+      - dev
+
+
