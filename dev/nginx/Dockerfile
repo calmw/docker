@@ -4,6 +4,11 @@ ENV REFRESHED_AT = 2023-02-19
 
 WORKDIR wkspace
 
+RUN apt-get -y update
+RUN apt-get install -y vim
+RUN apt-get install -y net-tools
+RUN apt-get install -y iputils-ping
+
 VOLUME ["/etc/nginx/conf.d","/www","/logs"]
 
 EXPOSE 8001
