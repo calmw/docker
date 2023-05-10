@@ -11,8 +11,7 @@
 #### mongodb container
 
     拉取最新镜像: docker pull mongo:latest
-    启动容器: // docker run --name mongo -p 27017:27017 -v $PWD/data:/data/db -d mongo:latest
-             docker run --net=dev --name mongo -p 27017:27017 -v /Users/cisco/Desktop/workspace/docker/data/mongo:/data/db -d mongo:latest
+    启动容器: docker run --net=dev --name mongo -p 27017:27017 -v /Volumes/dev/dockerdata/mongo:/data/db -d mongo:latest  --wiredTigerCacheSizeGB 1.5
 
 #### rabbitmq container
 
@@ -25,7 +24,7 @@
     拉取最新镜像: docker pull nginx:latest
     启动容器: docker run --net=dev --name nginx -p 80:80 -d nginx:latest
 
-#### ubuntu container
+#### ubuntu container234
 
     拉取最新镜像: docker pull ubuntu:latest
     启动容器: docker run -itd --name ubuntu -P ubuntu:latest
