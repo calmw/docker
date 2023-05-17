@@ -25,11 +25,12 @@ RUN apt-get install -y make
 RUN apt-get install -y ssh
 RUN apt-get install -y systemd
 RUN apt-get install -y systemctl
+RUN apt-get install -y git
 
 VOLUME ["/project", "/data"]
 
 
-EXPOSE 5000
+#EXPOSE 5000
 EXPOSE 5001
 EXPOSE 5002
 EXPOSE 5003
@@ -45,6 +46,8 @@ EXPOSE 5012
 EXPOSE 5013
 EXPOSE 5014
 EXPOSE 5015
+EXPOSE 8545
+EXPOSE 9632
 
 
 # 运行容器
@@ -54,7 +57,7 @@ EXPOSE 5015
 # docker run -itd --privileged docker pull ubuntu:18.04 /usr/sbin/init
 
 # sudo ./oneinstack/install.sh --nginx_option 1 --php_option 10 --phpcache_option 1 --php_extensions gmagick,fileinfo,imap,redis,mongodb
-# docker run -itd --privileged=true --network=dev -p 5000:5000 -p 5001:5001 -p 5002:5002 -p 5003:5003 -p 5004:5004 -p 5005:5005 -p 5006:5006 -p 5007:5007 -p 5008:5008 -p 5009:5009 -p 5010:5010 -p 5011:5011 -p 5012:5012 -p 5013:5013 -p 5014:5014 -p 5015:5015   -v /Users/cisco/Desktop/workspace/docker/dev/data:/data -v /Users/cisco/Desktop/workspace/docker/dev/project:/project --name dev dev
+# docker run -itd --privileged=true --network=dev -p 5000:5000 -p 8545:8545 -p 9632:9632 -p 5001:5001 -p 5002:5002 -p 5003:5003 -p 5004:5004 -p 5005:5005 -p 5006:5006 -p 5007:5007 -p 5008:5008 -p 5009:5009 -p 5010:5010 -p 5011:5011 -p 5012:5012 -p 5013:5013 -p 5014:5014 -p 5015:5015   -v /Users/cisco/Desktop/workspace/docker/dev/data:/data -v /Users/cisco/Desktop/workspace/docker/dev/project:/project --name dev dev
 
 
 
