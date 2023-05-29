@@ -11,7 +11,7 @@
 #### mongodb container
 
     拉取最新镜像: docker pull mongo:latest
-    启动容器: docker run --net=dev --name mongo -p 27017:27017 -v /Volumes/dev/dockerdata/mongo:/data/db -d mongo:latest  --wiredTigerCacheSizeGB 1.5
+    启动容器: docker run --net=dev --name mongo -p 27017:27017 -v /Users/cisco/Desktop/workspace/docker/docker-data/mongo:/data/db -d mongo:latest  --wiredTigerCacheSizeGB 1.5
 
 #### rabbitmq container
 
