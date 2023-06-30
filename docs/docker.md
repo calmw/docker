@@ -37,6 +37,7 @@
         docker network create app  #创建一个app的docker网络
     查看网络
         docker network ls
+        docker network inspect mynetwork  # mynetwork 网络名称
     删除网络
         docker network rm network_name
     使用：
@@ -54,6 +55,7 @@
 #### 查看正在运行的docker容器
 
     docker ps
+    docker ps -a  # 列出所有容器
 
 #### 检查容器的日志
 

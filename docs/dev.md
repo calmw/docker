@@ -3,6 +3,11 @@
     拉取最新镜像: docker pull mysql:latest
     启动容器: docker run --net=dev --name mysql8 -p 3306:3306 -v /Users/cisco/Desktop/workspace/docker/dev/lnmp/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -d mysql:latest
 
+#### postgresql container
+
+    拉取最新镜像: docker pull postgres:latest
+    启动容器: docker run --net=dev --name postgres -e POSTGRES_USER=root -e POSTGRES_PASSWORD=123456 -d postgres
+
 #### redis container
 
     拉取最新镜像: docker pull redis:latest
