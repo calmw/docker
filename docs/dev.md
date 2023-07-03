@@ -29,10 +29,15 @@
     拉取最新镜像: docker pull nginx:latest
     启动容器: docker run --net=dev --name nginx -p 80:80 -d nginx:latest
 
-#### ubuntu container234
+#### ubuntu container
 
     拉取最新镜像: docker pull ubuntu:latest
     启动容器: docker run -itd --name ubuntu -P ubuntu:latest
+
+#### postgres container
+
+    拉取最新镜像: docker pull ubuntu:latest
+    启动容器: docker run --name postgres -p 5432:5432 -e POSTGRES_USER=root -e POSTGRES_PASSWORD=123456 -e POSTGRES_DB=dbname -e PGDATA=/var/lib/postgresql/data/pgdata -v /Users/cisco/Desktop/workspace/docker/dev/postgresql_data:/var/lib/postgresql/data  -d postgres
 
 #### dev container
 

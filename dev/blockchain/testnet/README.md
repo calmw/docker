@@ -6,6 +6,8 @@
 
 - ``` docker network create blockchain_test ```
 
+- 查看网络 ``` docker network inspect blockchain_test ```
+
 #### 创建容器
 
 - 节点一：
