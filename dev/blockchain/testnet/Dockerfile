@@ -11,6 +11,7 @@ ADD start.sh /ethereum/start.sh
 RUN chmod -R 777 "/ethereum/start.sh"
 RUN touch "/ethereum/geth.log"
 RUN chmod -R 777 "/ethereum/geth.log"
+RUN /ethereum/geth --nousb --datadir "/project/node_data" init "/ethereum/genesis.json"
 
 VOLUME ["/project"]
 
