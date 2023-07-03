@@ -1,0 +1,33 @@
+version: '3'
+
+networks:
+  blockchain_test:
+
+services:
+
+  TestNet:
+    image: blockchain_testnet
+    container_name: testnet
+    restart: always
+    volumes:
+      - /home/wangfei/blockchain/testnet-one/:/project/
+    ports:
+      - "7545:7545"
+      - "7546:7546"
+      - "30303:30303"
+    networks:
+      - blockchain_test
+
+  DevNet:
+    image: blockchain_devnet
+    container_name: devnet
+    restart: always
+    volumes:
+      - /home/wangfei/blockchain/testnet-two/:/project/
+    ports:
+      - "8545:7545"
+      - "8546:7546"
+      - "30305:30303"
+    networks:
+      - blockchain_test
+
