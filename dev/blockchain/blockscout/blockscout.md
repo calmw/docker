@@ -1,6 +1,7 @@
 #### docker 启动
 
-- 命令：
+- 1 去docker hub拉取官方镜像
+- 2 执行命令：
 
 ``` shell
 cd blockscout/docker \
