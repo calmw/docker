@@ -61,7 +61,12 @@
 
     docker logs mysql 
     mysql 为容器名称
-    后面还可加-f参数，可以达到与执行 tail -f 一样的效果
+    后面还可加-f参数，可以达到与执行 tail -f 一样的效果:
+        -f : 跟踪日志输出
+        –since :显示某个开始时间的所有日志
+        -t : 显示时间戳
+        –tail :仅列出最新N条容器日志
+        docker logs -f -t -tail 50 --since=“2022-09-23” [容器id或服务名称]
 
 #### 列出容器的进程
 
