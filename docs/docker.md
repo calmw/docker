@@ -7,6 +7,7 @@
     docker build -t="镜像名称" . 
     可以从GitHub仓库构建镜像 docker build -t="镜像名称" git@github.com:docker/docker,把后面.换成了仓库地址，前提是这个仓库的跟目录下面存在Dockerfile文件
     也可以用-f来指定Dockerfile文件，这个文件不必命名为Dockerfile，例如： docker build -t="镜像名称" -f path/file
+    检查Dockerfile是否存在于当前工作目录中 ： docker build -t docker-whale .
 
 #### 运行docker容器
 
