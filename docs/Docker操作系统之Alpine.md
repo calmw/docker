@@ -32,3 +32,34 @@ apt-get】，可以通过 [Alpine包查询网站](https://pkgs.alpinelinux.org/p
 Alpine Docker镜像也继承了Alpine Linux发行版的优势，相比于其它的Docker镜像，它的容量体积非常小，仅仅只有5MB， 我们通过打开
 DockerHub中[Alpine的官网](https://registry.hub.docker.com/_/alpine)
 
+#### Alpine linux安装bash
+
+#### docker容器
+
+- 系统应该是 Alpine Linux LXD（Linux容器），那么入股在其中安装 bash shell呢
+```shell
+apk update
+apk upgrade
+apk add bash
+```
+
+
+#### 安装 bash 文档
+apk add bash-doc
+
+#### 安装 bash 自动命令补全
+apk add bash-completion
+
+#### 使用 bash 作为 shell
+bash
+
+# 需要从主机登录到 Alpine Linux LXD 虚拟机，比如我从kubernets进去
+kubectl exec -it acme-orderer-0 /bin/bash
+
+# 需要将 root shell 更改为 bash
+vi /etc/passwd
+# 查找用户名和默认 shell，比如 /bin/ash
+# root:x:0:0:root:/root:/bin/ash
+# 然后用 /bin/bash 替换
+# root:x:0:0:root:/root:/bin/bash
+
