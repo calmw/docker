@@ -6,7 +6,7 @@
 #### postgresql container
 
     拉取最新镜像: docker pull postgres:latest
-    启动容器: docker run --net=dev --name postgres -e POSTGRES_USER=root -e POSTGRES_PASSWORD=123456 -d postgres
+    启动容器: docker run --net=dev -p 5432:5432 --name postgres -e POSTGRES_USER=root -e POSTGRES_PASSWORD=123456 -d postgres
 
 #### redis container
 
