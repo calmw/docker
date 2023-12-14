@@ -12,6 +12,7 @@
 
     拉取最新镜像: docker pull redis:latest
     启动容器: docker run --net=dev -d -p 6379:6379 --name redis redis:latest
+    连接redis:  redis-cli -h 127.0.0.1 -p 6379
 
 #### mongodb container
 
