@@ -1,12 +1,12 @@
 #### mysql container
 
     拉取最新镜像: docker pull mysql:latest
-    启动容器: docker run --net=dev --name mysql8 -p 3306:3306 -v /Users/cisco/Desktop/workspace/docker/dev/lnmp/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -d mysql:latest
+    启动容器: docker run --net=dev --name mysql8 -p 3306:3306 -v /Users/cisco/Desktop/workspace/docker_data/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -d mysql:latest
 
 #### postgresql container
 
     拉取最新镜像: docker pull postgres:latest
-    启动容器: docker run --net=dev -p 5432:5432 --name postgres -e POSTGRES_USER=root -e POSTGRES_PASSWORD=let_me_in -v /Users/cisco/Desktop/workspace/docker/dev/postgresql/data:/var/lib/postgresql/data -d postgres
+    启动容器: docker run --net=dev -p 5432:5432 --name postgres -e POSTGRES_USER=root -e POSTGRES_PASSWORD=root -v /Users/cisco/Desktop/workspace/docker_data/postgresql/data:/var/lib/postgresql/data -d postgres
 
 #### redis container
 
@@ -17,7 +17,7 @@
 #### mongodb container
 
     拉取最新镜像: docker pull mongo:latest
-    启动容器: docker run --net=dev -p 27017:27017 -v /Users/cisco/Desktop/workspace/docker/docker-data/mongo:/data/db -d -e MONGO_INITDB_ROOT_USERNAME=root -e MONGO_INITDB_ROOT_PASSWORD=openai_api_backend_let_me_in --wiredTigerCacheSizeGB 1.5 --name mongo mongo:latest
+    启动容器: docker run --net=dev -p 27017:27017 -v /Users/cisco/Desktop/workspace/docker_data/mongo:/data/db -d -e MONGO_INITDB_ROOT_USERNAME=root -e MONGO_INITDB_ROOT_PASSWORD=root --name mongo mongo:latest
 
 #### rabbitmq container
 
@@ -35,15 +35,10 @@
     拉取最新镜像: docker pull ubuntu:latest
     启动容器: docker run -itd --name ubuntu -P ubuntu:latest
 
-#### postgres container
-
-    拉取最新镜像: docker pull ubuntu:latest
-    启动容器: docker run --name postgres -p 5432:5432 -e POSTGRES_USER=root -e POSTGRES_PASSWORD=123456 -e POSTGRES_DB=dbname -e PGDATA=/var/lib/postgresql/data/pgdata -v /Users/cisco/Desktop/workspace/docker/dev/postgresql_data:/var/lib/postgresql/data  -d postgres
-
 #### dev container
 
     镜像通过demo中Dockerfile构建
-    启动本地测试容器: docker run -itd --network=dev -p 1000:1000 -p 1001:1001 -p 1002:1002 -p 8080:8080 -p 8090:8090 -p 9000:9000 -p 9001:9001 -p 9002:9002 -p 9003:9003 -p 8600:8600  -v /Users/cisco/Desktop/workspace/docker/dev/data:/data -v /Users/cisco/Desktop/workspace/docker/dev/project:/project --name dev dev
+    启动本地测试容器: docker run -itd --network=dev -p 1000:1000 -p 1001:1001 -p 1002:1002 -p 8080:8080 -p 8090:8090 -p 9000:9000 -p 9001:9001 -p 9002:9002 -p 9003:9003 -p 8600:8600  -v /Users/cisco/Desktop/workspace/docker_data/dev/data:/data -v /Users/cisco/Desktop/workspace/docker/dev/project:/project --name dev dev
 
 #### baota container
 
