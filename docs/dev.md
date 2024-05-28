@@ -3,11 +3,6 @@
     拉取最新镜像: docker pull mysql:latest
     启动容器: docker run --net=dev --name mysql8 -p 3306:3306 -v /Users/cisco/Desktop/workspace/docker_data/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -d mysql:latest
 
-#### postgresql container
-
-    拉取最新镜像: docker pull postgres:latest
-    启动容器: docker run --net=dev -p 5432:5432 --name postgres -e POSTGRES_USER=root -e POSTGRES_PASSWORD=root -v /Users/cisco/Desktop/workspace/docker_data/postgresql/data:/var/lib/postgresql/data -d postgres
-
 #### redis container
 
     拉取最新镜像: docker pull redis:latest
@@ -34,6 +29,11 @@
 
     拉取最新镜像: docker pull ubuntu:latest
     启动容器: docker run -itd --name ubuntu -P ubuntu:latest
+
+#### postgres container
+
+    拉取最新镜像: docker pull ubuntu:latest
+    启动容器: docker run --name postgres -p 5432:5432 -e POSTGRES_USER=root -e POSTGRES_PASSWORD=root -e POSTGRES_DB=dbname -e PGDATA=/var/lib/postgresql/data/pgdata -v /Users/cisco/Desktop/workspace/docker_data/postgresql:/var/lib/postgresql/data  -d postgres
 
 #### dev container
 
