@@ -101,6 +101,16 @@
     docker exec -it b30062adc08c /bin/bash
     b30062adc08c 容器ID或者使用容器名称
 
+#### 关闭docker日志
+    在Docker中，日志文件通常位于 /var/lib/docker/containers/[container-id]/ 目录下，其中 [container-id] 是容器的唯一标识符。如果你想关闭Docker的日志记录功能，可以通过配置容器的启动参数来实现。
+    但是，关闭日志记录可能会导致无法追踪容器的活动，这通常不是推荐的做法。如果你只是想减少日志的输出，可以调整容器的日志驱动配置，例如设置日志级别或限制日志文件的大小。
+    以下是一个如何设置容器日志驱动参数的例子：
+    docker run --log-driver json-file --log-opt max-size=10m --log-opt max-file=3 myimage
+    在这个例子中，--log-driver 指定了日志驱动，--log-opt 设置了日志选项，比如日志文件的最大大小为10MB，并且每个容器只保留3个日志文件。
+    如果你确实想关闭日志，可以考虑使用 none 日志驱动：
+    docker run --log-driver none myimage
+    使用 none 日志驱动将不会记录任何日志信息。但请注意，这可能会影响你对容器运行情况的监控和调试。
+
 #### docker compose
 
     docker编配工具
