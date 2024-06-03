@@ -111,6 +111,10 @@
     docker run --log-driver none myimage
     使用 none 日志驱动将不会记录任何日志信息。但请注意，这可能会影响你对容器运行情况的监控和调试。
 
+    docker-composer 可以配置：
+        logging:
+        driver: json-file/none
+
 #### docker compose
 
     docker编配工具
