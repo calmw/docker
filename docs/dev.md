@@ -3,6 +3,11 @@
     拉取最新镜像: docker pull mysql:latest
     启动容器: docker run --net=dev --name mysql8 -p 3306:3306 -v /Users/cisco/Desktop/workspace/docker/docker_data/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -d mysql:latest
 
+#### tidb container
+
+    拉取最新镜像: docker pull pingcap/tidb:latest
+    启动容器: docker run --name tidb-server -d -p 4000:4000 -d pingcap/tidb:latest
+
 #### redis container
 
     拉取最新镜像: docker pull redis:latest
